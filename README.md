@@ -20,7 +20,7 @@ The greenspace data from OS is available in Geography Markup Language [GML](http
 ## Viewing the Shapefile with QGIS
 [QGIS](https://www.qgis.org/en/site/) is a free and Open Source Geographic Information System. It allows you to create, edit, visualise, analyse and publish geospatial information on Windows, Mac, Linux and BSD. Its a great starting point to make sure the downloaded shapefile is ok and understand what it contains. 
 
-Create a new project withn QGIS and add a vector layer - select the .shp file and it will load the data. The Greenspace sites and access points can be loaded as seperate layers - the latter appearing as dots and the former as polygons. 
+Create a new project withn QGIS and add a vector layer - select the .shp file and it will load the data. The Greenspace sites and access points can be loaded as seperate layers - the latter appearing as dots and the former as polygons. A snapshot of the greenspaces near Cardiff City Centre are shown below at a scale of 1:25000; if you are familiar with the areas you can see Bute Park alongside the River Taff (bottom left) and Roath Park and its lake (top right). However, just teh layers themselves are not that useful! Lets look at adding a map behind them.
 
 ![Greenspaces near Cardiff Centre as viewed in QGIS](/img/Cardiff_greenspace_qgis.png?raw=true "Optional Title")
 
