@@ -9,6 +9,8 @@ Access to the shapefiles is via OS at https://www.ordnancesurvey.co.uk/business-
 
 
 ## Exploring the Shapefile with R
+The concept is quite straightforward - go grab the appopriate base map and then plot the shapefile over the top of it as a set of polygons. However there are a few potential trip points!
+
 
 ### Libraries
 
@@ -29,3 +31,15 @@ devtools::install_github("dkahle/ggmap")
 ```
 #### maptools
 [maptools](https://cran.r-project.org/web/packages/maptools/maptools.pdf) is a set of tools for manipulating and reading geographic data, in particular ESRI Shape- files. This library is used to open and handle the ONS Greenspace shapefile. 
+
+### Getting the base map
+This is fairly straightforward if you have ggmaps installed. Using ```get_map``` we can go get the appropriate map from an appopriate source, .e.g., to get a map of South Wales centred around Cardiff:
+
+```R
+mapImage <- get_map( location = c(lon =, lat =), 
+                    color = 'color',
+                    source = 'google',
+                    zoom = 8)
+```
+
+This map image object can be plotted using ```ggmap(mapImage)```.
