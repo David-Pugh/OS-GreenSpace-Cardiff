@@ -91,7 +91,27 @@ Nearly There! The issue we now have is that the zoom we have chosen and the area
 ![Greenspaces near Cardiff Centre as viewed in R, but without trimming to the cooridnates of the map](/img/cardiff_greenspace_notrim.png?raw=true "untrimmed data")
 To avoid this we need to eliminate any points that are out of the map range. This allows us then to create a static map from Google, with the OS Greenspace sites overlaid. 
 ![Greenspaces near Cardiff Centre as viewed in R](/img/cardiff_greenspace.png?raw=true "Greenspace Data")
-Adding the access points is very similar, just load up the shapefile, transform its coordinates and add as a geom_points layer. However, the data within the access points is in a different format. The lat and long values are bundles into one parameter called ```coordinate```
+Adding the access points is very similar, just load up the shapefile, transform its coordinates and add as a geom_points layer. However, the data within the access points is in a slightly different format. The lat and long are bundled in a single column called coordinates (use ```head()``` to see the first few data points. After transformation the lat and long values are extracted out into new columns called coords.x1 and cords.x2. These can be renamed and used in the ```aes``` call in ```geom_point```. The data does not need to be fortified, just tell ggmap to intepret it as a dataframe.
+
+```R
+p <- ggmap(mapImage, extent = "normal", maprange = FALSE) +
+     geom_polygon(data = fortify(sites.transformed),
+                  aes(long, lat, group = group),
+                  fill = "green", colour = "black", alpha = 0.3) +	 
+    	geom_point(data = as.data.frame(access.transformed),
+	 			             aes(long, lat),
+	 			             colour='red', size = 0.9) +
+     theme_bw() +
+     coord_map(projection="mercator",
+               xlim=c(attr(mapImage, "bb")$ll.lon, attr(mapImage, "bb")$ur.lon),
+               ylim=c(attr(mapImage, "bb")$ll.lat, attr(mapImage, "bb")$ur.lat))
+
+print(p)
+```
+You can play around with the zoom level and the map type to get different views of the Greenspaces near to you.
+
+![Greenspaces near Cardiff Centre as viewed in R](/img/cardiff_greenspace_satellite.png?raw=true "Greenspace on Satellite Data")
+
 
 ### Citations
 1. D. Kahle and H. Wickham. ggmap: Spatial Visualization with ggplot2, The R Journal, 5(1), 144-161. URL http://journal.r-project.org/archive/2013-1/kahle-wickham.pdf
