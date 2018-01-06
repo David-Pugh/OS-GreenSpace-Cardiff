@@ -44,8 +44,8 @@ This is a reported problem https://github.com/dkahle/ggmap/issues/122 and the so
 ```R
 devtools::install_github("dkahle/ggmap")
 ```
-#### maptools
-[maptools](https://cran.r-project.org/web/packages/maptools/maptools.pdf) is a set of tools for manipulating and reading geographic data, in particular ESRI Shape- files. This library is used to open and handle the ONS Greenspace shapefile. 
+#### rgdal
+[rgdal](https://cran.r-project.org/web/packages/rgdal/rgdal.pdf) is a set of tools for reading vector-based spatial data. It provides bindings to the Geospatial Data Abstraction Library (GDAL) for reading, writing and converting between spatial formats. This library is used to open and handle the ONS Greenspace shapefile. 
 
 ### Getting the base map
 This is fairly straightforward if you have ggmaps installed. Using ```get_map``` we can go get the appropriate map from an appopriate source, .e.g., to get a map of South Wales centred around Cardiff from Google Maps:
@@ -61,6 +61,16 @@ You can get the appropriate cordinates from [Google Maps](https://support.google
 This map image object can be plotted using ```ggmap(mapImage)```, but can also be handled like a [ggplot](http://ggplot2.org) object, so we can add layers.
 
 ### Getting the Shapefile data
+Getting the shapefile into R an din the right format is fairly straightformward using the ```readOGR``` tool in rgdal. For shapefile the dsn is the folder where all our required shapefile files are stored (including the shx, dbf and prj files) and the layer is the shapefile file name without the .shp extension. For example to load the greenspace sites:
+
+```R
+sites <-readOGR(dsn=folder, layer='ST_GreenspaceSite' )
+```
+
+Although rgdal is powerful, it can be quirky at times (e.g., [backslashes at the end of your folder reference will cause a fail](http://zevross.com/blog/2016/01/13/tips-for-reading-spatial-files-into-r-with-rgdal/). If it loads successfully you will see a brief summary of the shapefile, including the number of features and fields it contains.
+
+### Overlaying the Shapefile on the Basemap
+
 
 ### Citations
 1. D. Kahle and H. Wickham. ggmap: Spatial Visualization with ggplot2, The R Journal, 5(1), 144-161. URL http://journal.r-project.org/archive/2013-1/kahle-wickham.pdf
