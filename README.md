@@ -32,7 +32,7 @@ The concept is quite straightforward - go grab the appropriate base map and then
 #### ggmap
 [ggmap](https://cran.r-project.org/web/packages/ggmap/ggmap.pdf)(1) is a collection of functions to visualize spatial data and models on top of static maps from various online sources (e.g Google Maps and Stamen Maps). It includes tools common to those tasks, including functions for geolocation and routing.
 
-However, recent updates to means that displaying maps can lead to the following error:
+However, recent updates to means that trying to display maps with ```ggmap()``` can lead to the following error:
 
 ```R
 Error: GeomRasterAnn was built with an incompatible version of ggproto.
@@ -48,7 +48,7 @@ devtools::install_github("dkahle/ggmap")
 [rgdal](https://cran.r-project.org/web/packages/rgdal/rgdal.pdf) is a set of tools for reading vector-based spatial data. It provides bindings to the Geospatial Data Abstraction Library (GDAL) for reading, writing and converting between spatial formats. This library is used to open and handle the ONS Greenspace shapefile. 
 
 ### Getting the base map
-This is fairly straightforward if you have ggmaps installed. Using ```get_map``` we can go get the appropriate map from an appopriate source, .e.g., to get a map of South Wales centred around Cardiff from Google Maps:
+This is fairly straightforward if you have ggmaps installed. Using ```get_map``` we can go get the appropriate map from an appropriate source, .e.g., to get a map of South Wales centred around Cardiff from Google Maps:
 
 ```R
 mapImage <- get_map( location = c(lon =, lat =), 
@@ -61,7 +61,7 @@ You can get the appropriate cordinates from [Google Maps](https://support.google
 This map image object can be plotted using ```ggmap(mapImage)```, but can also be handled like a [ggplot](http://ggplot2.org) object, so we can add layers.
 
 ### Getting the Shapefile data
-Getting the shapefile into R an din the right format is fairly straightformward using the ```readOGR``` tool in rgdal. For shapefile the dsn is the folder where all our required shapefile files are stored (including the shx, dbf and prj files) and the layer is the shapefile file name without the .shp extension. For example to load the greenspace sites:
+Getting the shapefile into R and in the right format is fairly straightformward using the ```readOGR``` tool in rgdal. For a shapefile the dsn is the folder where all our required shapefile files are stored (including the shx, dbf and prj files) and the layer is the shapefile file name without the .shp extension. For example to load the greenspace sites:
 
 ```R
 sites <-readOGR(dsn=folder, layer='ST_GreenspaceSite' )
