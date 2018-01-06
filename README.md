@@ -22,6 +22,8 @@ The greenspace data from OS is available in Geography Markup Language [GML](http
 
 Create a new project withn QGIS and add a vector layer - select the .shp file and it will load the data. The Greenspace sites and access points can be loaded as seperate layers - the latter appearing as dots and the former as polygons. 
 
+![Greenspaces near Cardiff Centre as viewed in QGIS](/img/Cardiff_greenspace_qgis.png?raw=true "Optional Title")
+
 ## Exploring the Shapefile with R
 The concept is quite straightforward - go grab the appropriate base map and then plot the shapefile over the top of it as a set of polygons. However there are a few potential trip points!
 
