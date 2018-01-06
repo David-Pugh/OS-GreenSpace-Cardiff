@@ -69,8 +69,27 @@ sites <-readOGR(dsn=folder, layer='ST_GreenspaceSite' )
 
 Although rgdal is powerful, it can be quirky at times (e.g., [backslashes at the end of your folder reference will cause a fail](http://zevross.com/blog/2016/01/13/tips-for-reading-spatial-files-into-r-with-rgdal/). If it loads successfully you will see a brief summary of the shapefile, including the number of features and fields it contains.
 
-### Overlaying the Shapefile on the Basemap
+The shapefile itself can be plotted and viewed 
+```r
+ggplot(data=fortify(sites), aes(long, lat, group=group)) + 
+    geom_polygon(colour='black', fill='white') +
+    theme_bw()
+```
 
+### Overlaying the Shapefile on the Basemap
+We can build up a ggmap object using the basemap and the shapefile layers. However, we need to ensure the co-ordinate systems of the shapefile and ggmap match. To see what system the shapefile uses use the command ```proj4string(loaded_shapefile_data)``` (this data is stored in the .prj file). For OS Shapefiles we see the following: 
+```
+"+proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +datum=OSGB36 +units=m +no_defs +ellps=airy +towgs84=446.448,-125.157,542.060,0.1502,0.2470,0.8421,-20.4894"
+```
+We need to transform the shapefile into the coordinates (latitude/longitude) on the World Geodetic System of 1984 (WGS84) datum as used by ggmaps. This is achieved using the rgdal package
+
+```r
+trans_shapefile_data <- spTransform(shpData, CRS("+proj=longlat +datum=WGS84"))
+```
+
+Nearly There! The issue we now have is that the zoom we have chosen and the area covered by the shapefile are likely to be different. The plot will default to showing whichever is larger - the shapefile or the map. If the map is zoomed in, this means it may appear as a small square within the larger shapefile:
+
+To avoid this we need to eliminate any points that are out of the map range. This allows us then to create a static map from Google, with the OS Greenspace sites overlaid. Adding the access points is very similar, just load up the shapefile, transform its coordinates and add as a geom_points layer.
 
 ### Citations
 1. D. Kahle and H. Wickham. ggmap: Spatial Visualization with ggplot2, The R Journal, 5(1), 144-161. URL http://journal.r-project.org/archive/2013-1/kahle-wickham.pdf
