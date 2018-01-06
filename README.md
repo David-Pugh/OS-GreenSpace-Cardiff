@@ -41,6 +41,8 @@ mapImage <- get_map( location = c(lon =, lat =),
                     source = 'google',
                     zoom = 8)
 ```
-You can get the appropriate cordinates from [Google Maps](https://support.google.com/maps/answer/18539?co=GENIE.Platform%3DDesktop&hl=en) or other from many other [utilities](https://www.gps-coordinates.net). See [Google](https://developers.google.com/maps/documentation/static-maps/intro#Zoomlevels) for a guide to the zoom parameter.
+You can get the appropriate cordinates from [Google Maps](https://support.google.com/maps/answer/18539?co=GENIE.Platform%3DDesktop&hl=en) or other from many other [utilities](https://www.gps-coordinates.net). See Google for a guide to the [zoom](https://developers.google.com/maps/documentation/static-maps/intro#Zoomlevels) parameter.
 
-This map image object can be plotted using ```ggmap(mapImage)```.
+This map image object can be plotted using ```ggmap(mapImage)```, but can also be handled like a [ggplot](http://ggplot2.org) object, so we can add layers.
+
+### Getting the Shapefile data
