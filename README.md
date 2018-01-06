@@ -33,7 +33,7 @@ devtools::install_github("dkahle/ggmap")
 [maptools](https://cran.r-project.org/web/packages/maptools/maptools.pdf) is a set of tools for manipulating and reading geographic data, in particular ESRI Shape- files. This library is used to open and handle the ONS Greenspace shapefile. 
 
 ### Getting the base map
-This is fairly straightforward if you have ggmaps installed. Using ```get_map``` we can go get the appropriate map from an appopriate source, .e.g., to get a map of South Wales centred around Cardiff:
+This is fairly straightforward if you have ggmaps installed. Using ```get_map``` we can go get the appropriate map from an appopriate source, .e.g., to get a map of South Wales centred around Cardiff from Google Maps:
 
 ```R
 mapImage <- get_map( location = c(lon =, lat =), 
@@ -41,5 +41,6 @@ mapImage <- get_map( location = c(lon =, lat =),
                     source = 'google',
                     zoom = 8)
 ```
+You can get the appropriate cordinates from [Google Maps](https://support.google.com/maps/answer/18539?co=GENIE.Platform%3DDesktop&hl=en) or other from many other [utilities](https://www.gps-coordinates.net). See [Google](https://developers.google.com/maps/documentation/static-maps/intro#Zoomlevels) for a guide to the zoom parameter.
 
 This map image object can be plotted using ```ggmap(mapImage)```.
