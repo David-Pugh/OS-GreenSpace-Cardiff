@@ -11,11 +11,10 @@ Access to the shapefiles is via OS at https://www.ordnancesurvey.co.uk/business-
 ## Exploring the Shapefile with R
 The concept is quite straightforward - go grab the appopriate base map and then plot the shapefile over the top of it as a set of polygons. However there are a few potential trip points!
 
-
 ### Libraries
 
 #### ggmap
-[ggmap](https://cran.r-project.org/web/packages/ggmap/ggmap.pdf) is a collection of functions to visualize spatial data and models on top of static maps from various online sources (e.g Google Maps and Stamen Maps). It includes tools common to those tasks, including functions for geolocation and routing.
+[ggmap](https://cran.r-project.org/web/packages/ggmap/ggmap.pdf)(1) is a collection of functions to visualize spatial data and models on top of static maps from various online sources (e.g Google Maps and Stamen Maps). It includes tools common to those tasks, including functions for geolocation and routing.
 
 However, recent updates to means that displaying maps can lead to the following error:
 
@@ -46,3 +45,6 @@ You can get the appropriate cordinates from [Google Maps](https://support.google
 This map image object can be plotted using ```ggmap(mapImage)```, but can also be handled like a [ggplot](http://ggplot2.org) object, so we can add layers.
 
 ### Getting the Shapefile data
+
+### Citations
+1. D. Kahle and H. Wickham. ggmap: Spatial Visualization with ggplot2, The R Journal, 5(1), 144-161. URL http://journal.r-project.org/archive/2013-1/kahle-wickham.pdf
