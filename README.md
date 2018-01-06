@@ -15,7 +15,8 @@ The main library used in R is [ggmap](https://cran.r-project.org/web/packages/gg
 
 However, recent updates to means that displaying maps can lead to the following error:
 
-``` Error: GeomRasterAnn was built with an incompatible version of ggproto.
+```R
+Error: GeomRasterAnn was built with an incompatible version of ggproto.
 Please reinstall the package that provides this extension.
 ```
 
