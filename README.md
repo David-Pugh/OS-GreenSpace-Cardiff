@@ -112,7 +112,7 @@ p <- ggmap(mapImage, extent = "normal", maprange = FALSE) +
 
 print(p)
 ```
-You can play around with the zoom level and the map type to get different views of the Greenspaces near to you.
+You can play around with the zoom level and the map type to get different views of the Greenspaces near to you. You can use maps from various sources - see the [ggmap cheatsheet](https://www.nceas.ucsb.edu/~frazier/RSpatialGuides/ggmap/ggmapCheatsheet.pdf) for ideas.
 
 ![Greenspaces near Cardiff Centre as viewed in R](/img/cardiff_greenspace_satellite.png?raw=true "Greenspace on Satellite Data")
 
