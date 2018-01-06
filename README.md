@@ -88,8 +88,10 @@ trans_shapefile_data <- spTransform(shpData, CRS("+proj=longlat +datum=WGS84"))
 ```
 
 Nearly There! The issue we now have is that the zoom we have chosen and the area covered by the shapefile are likely to be different. The plot will default to showing whichever is larger - the shapefile or the map. If the map is zoomed in, this means it may appear as a small square within the larger shapefile:
-
-To avoid this we need to eliminate any points that are out of the map range. This allows us then to create a static map from Google, with the OS Greenspace sites overlaid. Adding the access points is very similar, just load up the shapefile, transform its coordinates and add as a geom_points layer.
+![Greenspaces near Cardiff Centre as viewed in R, but without trimming to the cooridnates of the map](/img/cardiff_greenspace_notrim.png?raw=true "untrimmed data")
+To avoid this we need to eliminate any points that are out of the map range. This allows us then to create a static map from Google, with the OS Greenspace sites overlaid. 
+![Greenspaces near Cardiff Centre as viewed in R](/img/cardiff_greenspace.png?raw=true "Greenspace Data")
+Adding the access points is very similar, just load up the shapefile, transform its coordinates and add as a geom_points layer. However, the data within the access points is in a different format. The lat and long values are bundles into one parameter called ```coordinate```
 
 ### Citations
 1. D. Kahle and H. Wickham. ggmap: Spatial Visualization with ggplot2, The R Journal, 5(1), 144-161. URL http://journal.r-project.org/archive/2013-1/kahle-wickham.pdf
