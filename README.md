@@ -25,4 +25,4 @@ Create a new project withn QGIS and add a vector layer - select the .shp file an
 ![Greenspaces near Cardiff Centre as viewed in QGIS](/img/Cardiff_greenspace_qgis.png?raw=true "Optional Title")
 
 ## Exploring the Shapefile with R
-The concept is quite straightforward - go grab the appropriate base map and then plot the shapefile over the top of it as a set of polygons. However there are a few potential trip points! Click [hear](/visualising_in_r/visualising_in_r.md) for details. 
+The concept is quite straightforward - go grab the appropriate base map and then plot the shapefile over the top of it as a set of polygons. However there are a few potential trip points! See the  [visualising_in_r](/visualising_in_r/) for details. 
