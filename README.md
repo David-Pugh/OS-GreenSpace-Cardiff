@@ -10,7 +10,7 @@ Access to the shapefiles is via OS at https://www.ordnancesurvey.co.uk/business-
 
 ## Shapefile
  
-The greenspace data from OS is available in Geography Markup Language [GML](http://www.opengeospatial.org/standards/gml) and [ESRI Shapefile](https://www.esri.com/library/whitepapers/pdfs/shapefile.pdf)format. Both formats describe geographic features. I downloaded and used the Shapefile format. This is a digital vector storage format for storing geometric location and associated attribute information. The downloaded file consists of a readme, liscence information and the data in a subfolder. It consists of 3 mandatory files (shp, shx and dbf) along with a prj for the greenspace sites and also the access points for each site. These files need to be kept together.
+The greenspace data from OS is available in Geography Markup Language [GML](http://www.opengeospatial.org/standards/gml) and [ESRI Shapefile](https://www.esri.com/library/whitepapers/pdfs/shapefile.pdf)format. Both formats describe geographic features. I downloaded and used the Shapefile format - this is a digital vector storage format for storing geometric location and associated attribute information. The downloaded file consists of a readme, liscence information and the data in a subfolder. It consists of 3 mandatory files (shp, shx and dbf) along with a prj for the greenspace sites and also the access points for each site. These files need to be kept together.
 
 * .shp — shape format; the feature geometry itself
 * .shx — shape index format; a positional index of the feature geometry to allow seeking forwards and backwards quickly
@@ -26,3 +26,6 @@ Create a new project withn QGIS and add a vector layer - select the .shp file an
 
 ## Exploring the Shapefile with R
 The concept is quite straightforward - go grab the appropriate base map and then plot the shapefile over the top of it as a set of polygons. This is a good start and gets static maps that you can eaily edit and customise. However there are a few potential trip points! See the  [visualising_in_r](/visualising_in_r/) for details. 
+
+## Exploring the Shapefile with Python and Foilum
+A static file is good but lets create a more zoomable map with more information. For this we turn to Python and use the Folium package, which utilises the Leaflet JavaScript library.
