@@ -83,3 +83,4 @@ m.add_child(access_feature_group)
 ```
 
 Unfortunately this loop takes a while and the file can get quite big; Ill be investigating quicker and more efficient ways to add this layer in the future.
+![Greenspaces near Cardiff Centre as viewed by Folium](/img/Greenspace_folium.png?raw=true "Foilum")
