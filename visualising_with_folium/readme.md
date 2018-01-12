@@ -9,7 +9,7 @@ There are several libraries that will make our job easier in Python:
 * [Folium](http://folium.readthedocs.io)  - generate Leaflet.js maps in Python
 
 ## A note on environments
-I used Conda to management my enevironments, but I did see an issue trying to load GeoPands - this issue is seen by a [few people using OSX](https://github.com/ioos/conda-recipes/issues/623). To solve it I set a new environment woth Python 3.4 and ensured it used GeoPandas from the the ioos (US Integrated Ocean Observing System) channel.
+I used Conda to management my enevironments, but I did see an issue trying to load GeoPands - this issue is seen by a [few people using OSX](https://github.com/ioos/conda-recipes/issues/623). To solve it I set a new environment with Python 3.4 and ensured it used GeoPandas from the the ioos (US Integrated Ocean Observing System) channel.
 
 ```conda create -n greenspace_env -c ioos geopandas python=3.4.```
 
@@ -51,6 +51,7 @@ shape_geojson = shape_data_proj.to_json()
 ```
 
 and this is easily added as a layer:
+
 ```Python
 folium.GeoJson(
     shape_geojson,
@@ -60,7 +61,7 @@ folium.GeoJson(
         },
     name='GreenSpaces'
     ).add_to(m)
-    ```
+```
 
 ## Dealing with the Access Points Shapefile
 If we just convert the Access Points shapefile to GeoJSON and apply as a layer to the map, we will get a screenfull of default markers. This is not particularly useful, instead we cant to add a layer of smaller markers. To achieve this we can create a feature layer that consists of a list of circular markers. We can generate these from the GeoPandas dataframe directly, and use the other columns to color and add information to each point.For example, you can add a pop up for each point showing the accessType text and colour code the circles based on what accessType they are.
@@ -81,4 +82,4 @@ for idx,row in access_data_proj.iterrows():
 m.add_child(access_feature_group)
 ```
 
-Unfortunately this loop takes a while and the file can get quite big; Ill be investigating quicker amd more efficient ways to add this layer in the future.
+Unfortunately this loop takes a while and the file can get quite big; Ill be investigating quicker and more efficient ways to add this layer in the future.
