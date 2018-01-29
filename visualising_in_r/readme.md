@@ -26,7 +26,7 @@ devtools::install_github("dkahle/ggmap")
 This is fairly straightforward if you have ggmaps installed. Using ```get_map``` we can go get the appropriate map from an appropriate source, .e.g., to get a map of South Wales centred around Cardiff from Google Maps:
 
 ```R
-mapImage <- get_map( location = c(lon =, lat =), 
+mapImage <- get_map( location = c(lon = 51.4816, lat =-3.1791), 
                     color = 'color',
                     source = 'google',
                     zoom = 8)
