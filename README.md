@@ -28,4 +28,4 @@ Create a new project withn QGIS and add a vector layer - select the .shp file an
 The concept is quite straightforward - go grab the appropriate base map and then plot the shapefile over the top of it as a set of polygons. This is a good start and gets static maps that you can eaily edit and customise. However there are a few potential trip points! See the  [visualising_in_r](/visualising_in_r/) for details. 
 
 ## Exploring the Shapefile with Python and Foilum
-A static file is good but lets create a more zoomable map with more information. For this we turn to Python and use the Folium package, which utilises the Leaflet JavaScript library.
+A static file is good but lets create a more zoomable map with more information. For this we turn to Python and use the Folium package, which utilises the Leaflet JavaScript library.Take a look at the code at [visualising in Python/Folium](/visualising_with_folium/).
