@@ -23,7 +23,7 @@ devtools::install_github("dkahle/ggmap")
 [rgdal](https://cran.r-project.org/web/packages/rgdal/rgdal.pdf) is a set of tools for reading vector-based spatial data. It provides bindings to the Geospatial Data Abstraction Library (GDAL) for reading, writing and converting between spatial formats. This library is used to open and handle the ONS Greenspace shapefile. 
 
 ### Getting the base map
-This is fairly straightforward if you have ggmaps installed. Using ```get_map``` we can go get the appropriate map from an appropriate source, .e.g., to get a map of South Wales centred around Cardiff from Google Maps:
+This is fairly straightforward if you have ggmaps installed. Using ```get_map``` we can go get the appropriate map from a suitable source, .e.g., to get a map of South Wales centred around Cardiff from Google Maps:
 
 ```R
 mapImage <- get_map( location = c(lon = 51.4816, lat =-3.1791), 
@@ -42,7 +42,7 @@ Getting the shapefile into R and in the right format is fairly straightformward 
 sites <-readOGR(dsn=folder, layer='ST_GreenspaceSite' )
 ```
 
-Although rgdal is powerful, it can be quirky at times (e.g., [backslashes at the end of your folder reference will cause a fail](http://zevross.com/blog/2016/01/13/tips-for-reading-spatial-files-into-r-with-rgdal/). If it loads successfully you will see a brief summary of the shapefile, including the number of features and fields it contains.
+Although rgdal is powerful, it can be quirky at times (e.g., [backslashes at the end of your folder reference will cause a fail](http://zevross.com/blog/2016/01/13/tips-for-reading-spatial-files-into-r-with-rgdal/) ). If it loads successfully you will see a brief summary of the shapefile, including the number of features and fields it contains.
 
 The shapefile itself can be plotted and viewed 
 ```r
